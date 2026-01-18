@@ -3,7 +3,7 @@ import { Insight } from "@/src/types/insight";
 import { InsightsClient } from "@/src/components/insights/InsightClients";
 
 async function getInsights(): Promise<Insight[]> {
-  const res = await fetch("http://localhost:3000/api/insights", {
+  const res = await fetch("/api/insights", {
     cache: "no-store",
   });
 

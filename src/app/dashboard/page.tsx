@@ -21,7 +21,7 @@ type SalesResponse = {
 };
 
 async function getSales(): Promise<SalesResponse> {
-  const res = await fetch("http://localhost:3000/api/sales", {
+  const res = await fetch("/api/sales", {
     cache: "no-store",
   });
 
@@ -37,7 +37,7 @@ type DashboardResponse = {
 };
 
 async function getDashboardData(): Promise<DashboardResponse> {
-  const res = await fetch("http://localhost:3000/api/dashboard", {
+  const res = await fetch("/api/dashboard", {
     cache: "no-store",
   });
 

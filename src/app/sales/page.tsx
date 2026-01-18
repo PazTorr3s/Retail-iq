@@ -44,7 +44,7 @@ async function getSales(): Promise<{
   weeklyComparison: SalesApiResponse["weeklyComparison"];
   recentOrders: Order[];
 }> {
-  const res = await fetch("http://localhost:3000/api/sales", {
+  const res = await fetch("/api/sales", {
     cache: "no-store",
   });
 
