@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 type DummyProduct = {
   title: string;
   price: number;
@@ -10,6 +11,11 @@ type OrderStatus =
   | "Pending"
   | "Cancelled";
 
+type SalesItem = {
+  product: string;
+  unitsSold: number;
+  revenue: number;
+};
 
 function normalizeStatus(status: string): OrderStatus {
   switch (status.toLowerCase()) {
@@ -26,13 +32,19 @@ function normalizeStatus(status: string): OrderStatus {
   }
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   const res = await fetch("https://dummyjson.com/products?limit=20");
+  if (!res.ok) {
+    return NextResponse.json(
+      { error: "Failed to fetch products" },
+      { status: 500 }
+    );
+  }
   const data = await res.json();
 
-  const products: DummyProduct[] = data.products;
+  const products = data.products;
 
-  const salesData = products.map((product) => {
+  const salesData: SalesItem[] = products.map((product : any): SalesItem => {
     const unitsSold = Math.floor(Math.random() * 50) + 20;
 
     return {
@@ -43,12 +55,12 @@ export async function GET() {
   });
 
   const totalRevenue = salesData.reduce(
-    (sum, item) => sum + item.revenue,
+    (sum: number, item: any) => sum + item.revenue,
     0
   );
 
   const totalOrders = salesData.reduce(
-    (sum, item) => sum + item.unitsSold,
+    (sum: number, item: any) => sum + item.unitsSold,
     0
   );
 
