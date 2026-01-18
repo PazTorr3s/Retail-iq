@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Insight } from "@/src/types/insight";
 import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 import {
   Sparkles,
   TrendingUp,

@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/src/components/ui/table";
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 import { TopProduct } from "@/src/types/dashboard";
 
 type Props = {

@@ -1,9 +1,11 @@
+import { getBaseUrl } from "@/src/lib/getBaseUrl";
 import { Topbar } from "@/src/components/layout/Topbar";
 import { Insight } from "@/src/types/insight";
 import { InsightsClient } from "@/src/components/insights/InsightClients";
 
 async function getInsights(): Promise<Insight[]> {
-  const res = await fetch("/api/insights", {
+    const baseUrl = await getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/insights`, {
     cache: "no-store",
   });
 

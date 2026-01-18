@@ -1,4 +1,5 @@
 import { Topbar } from "@/src/components/layout/Topbar";
+import { getBaseUrl } from "@/src/lib/getBaseUrl";
 import {
   Card,
   CardHeader,
@@ -44,7 +45,9 @@ async function getSales(): Promise<{
   weeklyComparison: SalesApiResponse["weeklyComparison"];
   recentOrders: Order[];
 }> {
-  const res = await fetch("/api/sales", {
+
+  const baseUrl = await getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/sales`, {
     cache: "no-store",
   });
 

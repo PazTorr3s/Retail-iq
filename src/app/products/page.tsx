@@ -1,9 +1,11 @@
+import { getBaseUrl } from "@/src/lib/getBaseUrl";
 import { Topbar } from "@/src/components/layout/Topbar";
 import { Product } from "@/src/types/product";
 import { ProductsFilterBarWrapper } from "@/src/components/products/ProductsFilterBarWrapper";
 
 async function getProducts(): Promise<Product[]> {
-  const res = await fetch("/api/products", {
+  const baseUrl = await getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/products`, {
     cache: "no-store",
   });
   return res.json();

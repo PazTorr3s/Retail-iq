@@ -1,3 +1,4 @@
+import { getBaseUrl } from "@/src/lib/getBaseUrl";
 import { Topbar } from "@/src/components/layout/Topbar";
 import { Card, CardHeader, CardTitle, CardContent } from "@/src/components/ui/card";
 import { KpiCard } from "@/src/components/dashboard/KpiCard";
@@ -21,7 +22,8 @@ type SalesResponse = {
 };
 
 async function getSales(): Promise<SalesResponse> {
-  const res = await fetch("/api/sales", {
+  const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/sales`, {
     cache: "no-store",
   });
 
@@ -37,7 +39,8 @@ type DashboardResponse = {
 };
 
 async function getDashboardData(): Promise<DashboardResponse> {
-  const res = await fetch("/api/dashboard", {
+  const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/dashboard`, {
     cache: "no-store",
   });
 
