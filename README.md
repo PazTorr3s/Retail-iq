@@ -22,7 +22,7 @@ API DummyJSON
 
 ```bash
     git clone https://github.com/PazTorr3s/Retail-iq.git
-    cd retail-iq
+    cd Retail-iq
 ```
 
 ## Instalar dependencias 
