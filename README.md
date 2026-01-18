@@ -40,3 +40,5 @@ Si no ocurre, accede manualmente a:
 ```bash
     http://localhost:3000
 ```
+## Deploy on Vercel
+https://retail-iq-neon.vercel.app/dashboard
