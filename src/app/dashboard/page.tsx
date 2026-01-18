@@ -22,7 +22,7 @@ type SalesResponse = {
 };
 
 async function getSales(): Promise<SalesResponse> {
-  const baseUrl = getBaseUrl();
+  const baseUrl = await getBaseUrl();
   const res = await fetch(`${baseUrl}/api/sales`, {
     cache: "no-store",
   });
@@ -39,7 +39,7 @@ type DashboardResponse = {
 };
 
 async function getDashboardData(): Promise<DashboardResponse> {
-  const baseUrl = getBaseUrl();
+  const baseUrl = await getBaseUrl();
   const res = await fetch(`${baseUrl}/api/dashboard`, {
     cache: "no-store",
   });
